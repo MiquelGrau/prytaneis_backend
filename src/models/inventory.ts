@@ -10,9 +10,10 @@ export class Inventory extends Model {
         this.init(
             {
                 id: {
-                    type: DataTypes.STRING,
+                    type: DataTypes.INTEGER,
                     primaryKey: true,
                     allowNull: false,
+                    autoIncrement: true,
                 },
                 warehouseId: {
                     type: DataTypes.STRING,

@@ -5,6 +5,7 @@ import { Inventory } from './inventory';
 export class Warehouse extends Model {
     public buildingId!: string;
     public capacity!: number;
+    public public!: boolean;
 
     public static initialize(sequelize: Sequelize) {
         super.init(
@@ -19,6 +20,11 @@ export class Warehouse extends Model {
                 },
                 capacity: {
                     type: DataTypes.INTEGER,
+                },
+                public: {
+                    type: DataTypes.BOOLEAN,
+                    allowNull: false,
+                    defaultValue: false,
                 },
             },
             {
