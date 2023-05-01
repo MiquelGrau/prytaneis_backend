@@ -23,11 +23,12 @@ export async function getCity(req: Request, res: Response) {
                 {
                     model: Building,
                     as: 'buildings',
+                    attributes: ['id', 'name', 'address', 'type', 'ownerId'], // Add 'type' to the selected fields
                     include: [
                         {
                             model: Owner,
                             as: 'owner',
-                            attributes: ['id', 'name'], // Only fetch 'id' and 'name' fields
+                            attributes: ['id', 'name'],
                         },
                     ],
                 },

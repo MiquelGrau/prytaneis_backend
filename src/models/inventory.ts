@@ -3,21 +3,26 @@ import { Warehouse } from './warehouse';
 import { Goods } from './goods';
 
 export class Inventory extends Model {
-    public id!: number;
+    public id!: string;
     public warehouseId!: string;
 
     public static initialize(sequelize: Sequelize) {
         this.init(
             {
                 id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     primaryKey: true,
                     allowNull: false,
-                    autoIncrement: true,
                 },
-                warehouseId: {
+                buildingId: {
                     type: DataTypes.STRING,
                     allowNull: false,
+                    references: {
+                        model: 'Buildings',
+                        key: 'id',
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'CASCADE',
                 },
             },
             {

@@ -7,17 +7,16 @@ module.exports = {
     if (!hasTable) {
       await queryInterface.createTable('Inventories', {
         id: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.STRING,
           primaryKey: true,
           allowNull: false,
-          autoIncrement: true,
         },
-        warehouseId: {
+        buildingId: { // Change to buildingId
           type: Sequelize.STRING,
           allowNull: false,
           references: {
-            model: 'Warehouses',
-            key: 'buildingId',
+            model: 'Buildings',
+            key: 'id',
           },
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',

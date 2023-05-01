@@ -4,9 +4,13 @@ const owners = [
     {
         id: 'O00001',
         name: 'Owner1',
-        cityId: 'C00001', // Replace with a valid city ID from the cities table
+        cityId: 'C00001',
     },
-    // Add more owner objects as needed
+    {
+        id: 'O00002',
+        name: 'Owner2',
+        cityId: 'C00001',
+    },
 ];
 
 module.exports = {

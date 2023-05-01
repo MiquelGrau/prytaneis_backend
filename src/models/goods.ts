@@ -13,9 +13,9 @@ export class Goods extends Model {
         this.init(
             {
                 inventoryId: {
-                    type: DataTypes.INTEGER,
-                    allowNull: false,
+                    type: DataTypes.STRING,
                     primaryKey: true,
+                    allowNull: false,
                 },
                 food: {
                     type: DataTypes.INTEGER,

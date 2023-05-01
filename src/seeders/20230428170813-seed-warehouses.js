@@ -7,7 +7,7 @@ const warehouses = [
         public: true,
     },
     {
-        buildingId: 'B00002', // Replace with a valid building ID from the buildings table
+        buildingId: 'B00003', // Replace with a valid building ID from the buildings table
         capacity: 1000,
         public: false,
     },

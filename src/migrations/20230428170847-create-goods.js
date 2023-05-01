@@ -7,7 +7,7 @@ module.exports = {
     if (!hasTable) {
       await queryInterface.createTable('Goods', {
         inventoryId: {
-          type: Sequelize.INTEGER, // Change this line to INTEGER
+          type: Sequelize.STRING,
           allowNull: false,
           primaryKey: true,
           references: {

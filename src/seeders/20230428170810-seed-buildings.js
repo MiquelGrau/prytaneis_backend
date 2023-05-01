@@ -1,34 +1,57 @@
 'use strict';
 
+const { BuildingType } = require('../enums/building.type');
+
 const buildings = [
     {
         id: 'B00001',
         address: '123 Main St',
-        name: 'Building1',
-        ownerId: 'O00001', // Replace with a valid owner ID from the owners table
-        type: 'Type1',
-        cityId: 'C00001', // Replace with a valid city ID from the cities table
+        name: 'Public Warehouse',
+        ownerId: 'O00001',
+        type: BuildingType.Warehouse,
+        cityId: 'C00001',
     },
     {
         id: 'B00002',
         address: '125 Main St',
-        name: 'Market',
-        ownerId: 'O00001', // Replace with a valid owner ID from the owners table
-        type: 'Type2',
-        cityId: 'C00001', // Replace with a valid city ID from the cities table
+        name: 'Public Market',
+        ownerId: 'O00001',
+        type: BuildingType.Market,
+        cityId: 'C00001',
+    },
+    {
+        id: 'B00003',
+        address: '123 Secondary St',
+        name: 'Private Warehouse',
+        ownerId: 'O00002',
+        type: BuildingType.Warehouse,
+        cityId: 'C00001',
+    },
+    {
+        id: 'B00004',
+        address: '125 Secondary St',
+        name: 'Private Market',
+        ownerId: 'O00002',
+        type: BuildingType.Market,
+        cityId: 'C00001',
     },
 ];
 
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert(
-            'Buildings',
-            buildings.map(building => ({
-                ...building,
-                createdAt: new Date(),
-                updatedAt: new Date(),
-            })),
-        );
+        try {
+            await queryInterface.bulkInsert(
+                "Buildings",
+                buildings.map((building) => ({
+                    ...building,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                }))
+            );
+        } catch (error) {
+            console.error("Error while seeding buildings:", error);
+            throw error;
+        }
     },
 
     down: async (queryInterface, Sequelize) => {
