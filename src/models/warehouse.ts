@@ -40,8 +40,9 @@ export class Warehouse extends Model {
             as: 'building',
         });
         this.hasOne(Inventory, {
-            foreignKey: 'warehouseId',
+            foreignKey: 'buildingId', // Change this line
             as: 'inventory',
+            sourceKey: 'buildingId', // Keep this line
         });
     }
 }

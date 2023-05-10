@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { getAllCities, getCity } from './city.controller'; // Import the getAllCities function from the city controller
+import { getAllCities, getCity } from './city.controller';
+import { authMiddleware } from '../../core/auth.middleware';
 
 const router = Router();
 
-router.get('/', getAllCities); // Use the getAllCities function as the handler for the GET / route
-router.get('/:cityId', getCity); // Use the getCity function as the handler for the GET /:cityId route
-
+router.get('/', authMiddleware, getAllCities); // Apply the authMiddleware to the getAllCities route
+router.get('/:cityId', authMiddleware, getCity); // Apply the authMiddleware to the getCity route
 
 export default router;

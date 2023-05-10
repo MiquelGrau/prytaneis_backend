@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { getAllBuildings, getGoodsByBuilding } from './building.controller';
+import { getAllBuildings } from './building.controller';
+import { authMiddleware } from '../../core/auth.middleware';
 
 const router = Router();
 
-router.get('/', getAllBuildings);
-router.get('/:buildingId/goods', getGoodsByBuilding); // Fix this line
+router.get('/', authMiddleware, getAllBuildings);
 
 export default router;

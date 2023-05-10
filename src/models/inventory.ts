@@ -4,7 +4,7 @@ import { Goods } from './goods';
 
 export class Inventory extends Model {
     public id!: string;
-    public warehouseId!: string;
+    public buildingId!: string;
 
     public static initialize(sequelize: Sequelize) {
         this.init(
@@ -34,7 +34,7 @@ export class Inventory extends Model {
 
     public static associate() {
         this.belongsTo(Warehouse, {
-            foreignKey: 'warehouseId',
+            foreignKey: 'buildingId',
             as: 'warehouse',
         });
         this.hasOne(Goods, {
@@ -42,6 +42,7 @@ export class Inventory extends Model {
             as: 'goods',
         });
     }
+
 }
 
 export function InventoryInit(sequelize: Sequelize) {

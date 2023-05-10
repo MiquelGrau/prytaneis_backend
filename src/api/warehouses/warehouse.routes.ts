@@ -5,12 +5,13 @@ import {
     getWarehousesByOwner,
     updateWarehouse,
 } from './warehouse.controller';
+import { authMiddleware } from '../../core/auth.middleware';
 
 const router = Router();
 
-router.post('/', createWarehouse);
-router.get('/public/:cityId', getPublicWarehousesByCity);
-router.get('/owner/:ownerId', getWarehousesByOwner);
-router.put('/:buildingId', updateWarehouse);
+router.post('/', authMiddleware, createWarehouse);
+router.get('/public/:cityId', authMiddleware, getPublicWarehousesByCity);
+router.get('/owner/:ownerId', authMiddleware, getWarehousesByOwner);
+router.put('/:buildingId', authMiddleware, updateWarehouse);
 
 export default router;
