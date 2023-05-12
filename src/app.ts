@@ -1,7 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import jwt from 'express-jwt';
-import jwksRsa from 'jwks-rsa';
 import cors from 'cors';
 
 import cityRoutes from './api/cities/city.routes';
@@ -10,7 +8,9 @@ import ownerRoutes from './api/owners/owner.routes';
 import vehicleRoutes from './api/vehicles/vehicle.routes'; // Add this import
 import warehouseRoutes from './api/warehouses/warehouse.routes';
 import marketRoutes from './api/markets/market.routes';
+import userRoutes from './api/user/user.routes';
 
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -23,6 +23,7 @@ app.use('/api/owners', ownerRoutes);
 app.use('/api/vehicles', vehicleRoutes);
 app.use('/api/warehouses', warehouseRoutes);
 app.use('/api/markets', marketRoutes);
+app.use('/api/register-user', userRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');

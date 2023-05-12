@@ -8,6 +8,9 @@ import { sequelize } from './src/config/database';
 import app from './src/app';
 import { Warehouse, WarehouseInit } from './src/models/warehouse';
 import { Market, MarketInit } from './src/models/market';
+import { Player, PlayerInit } from './src/models/player';
+import { Game, GameInit } from './src/models/game';
+import { User, UserInit } from './src/models/user';
 
 const PORT = process.env.PORT || 3000;
 
@@ -24,6 +27,9 @@ VehicleInit(sequelize);
 BuildingInit(sequelize);
 WarehouseInit(sequelize);
 MarketInit(sequelize);
+PlayerInit(sequelize);
+GameInit(sequelize);
+UserInit(sequelize);
 
 sequelize.sync();
 
@@ -35,5 +41,8 @@ Goods.associate();
 Building.associate();
 Warehouse.associate();
 Market.associate();
+Player.associate();
+Game.associate();
+User.associate();
 
-export { City, Building, Owner, Inventory, Vehicle };
+export { User, City, Building, Owner, Inventory, Vehicle };
