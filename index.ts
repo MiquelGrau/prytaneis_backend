@@ -11,6 +11,8 @@ import { Market, MarketInit } from './src/models/market';
 import { Player, PlayerInit } from './src/models/player';
 import { Game, GameInit } from './src/models/game';
 import { User, UserInit } from './src/models/user';
+import { PathInit } from './src/models/path';
+import { NodeInit } from './src/models/node';
 
 const PORT = process.env.PORT || 3000;
 
@@ -30,6 +32,8 @@ MarketInit(sequelize);
 PlayerInit(sequelize);
 GameInit(sequelize);
 UserInit(sequelize);
+PathInit(sequelize);
+NodeInit(sequelize);
 
 sequelize.sync();
 

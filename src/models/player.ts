@@ -1,6 +1,6 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
-import User from './user';
-import Game from './game';
+import { User } from './user';
+import { Game } from './game';
 
 export class Player extends Model {
     public id!: string;
@@ -34,7 +34,7 @@ export class Player extends Model {
         });
         this.belongsTo(Game, {
             foreignKey: 'gameId',
-            as: 'game',
+            as: 'games',
         });
     }
 }
